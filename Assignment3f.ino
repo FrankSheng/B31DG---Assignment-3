@@ -536,7 +536,7 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(PIN_IN_S), on_sporadic_rise, RISING);
   attachInterrupt(digitalPinToInterrupt(PIN_IN_MODE), on_mode_rise, RISING);
 
-  // priorities: S highest, then report, then A, then B/AGG, then C/D, debug lowest
+  // priorities
   xTaskCreatePinnedToCore(taskA_RTOS,        "TaskA",   3072, nullptr, 5, &g_taskAHandle,       APP_CORE);
   xTaskCreatePinnedToCore(taskB_RTOS,        "TaskB",   3072, nullptr, 4, &g_taskBHandle,       APP_CORE);
   xTaskCreatePinnedToCore(taskAGG_RTOS,      "TaskAGG", 3072, nullptr, 3, &g_taskAGGHandle,     APP_CORE);
